@@ -23,14 +23,18 @@ namespace Bookstore
         public void ConfigureServices(IServiceCollection services)
         {
             // requires using Microsoft.Extensions.Options
+            // For DB settings
             services.Configure<BookstoreDatabaseSettings>(
                 Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
 
             services.AddSingleton<IBookstoreDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
 
+            // For services
             services.AddSingleton<BookService>();
+            services.AddSingleton<UserService>();
 
+            // Add controllers with Views
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
