@@ -1,0 +1,25 @@
+<h2>Our Books</h2>
+
+<div *ngFor="let book of books | async let bookId = index">
+  <div class="shop-column">
+
+    <app-product-alerts [book]="book"
+                        (notify)="onNotify($event)">
+    </app-product-alerts>
+
+    <a href="#" [routerLink]="['/books', bookId]">{{book.name}}</a> <!--te duce tot la masini, modifica!-->
+
+    <p *ngIf="book.author">
+      Author: {{ book.author }}
+    </p>
+
+  </div>
+
+</div>
+
+
+<!--
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
