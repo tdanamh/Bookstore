@@ -1,0 +1,8 @@
+<h3>Books</h3>
+
+
+<div class="books-item" *ngFor="let book of books | async">
+  <span>Title: {{ book.name }}</span>&nbsp;
+  <span>Author: {{ book.author }}</span>&nbsp;
+  <span>Category: {{ book.category }}</span>&nbsp;
+</div>

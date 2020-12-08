@@ -33,6 +33,8 @@ namespace Bookstore
             // For services
             services.AddSingleton<BookService>();
             services.AddSingleton<UserService>();
+            services.AddSingleton<DiscountService>();
+            services.AddSingleton<OrderService>();
 
             // Add controllers with Views
             services.AddControllersWithViews();
