@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn = false;
+  constructor() {
+    if (localStorage.getItem('userConnected')) {
+      this.isLoggedIn = true;
+    }
+  }
 
   ngOnInit() {
   }

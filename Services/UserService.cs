@@ -22,6 +22,9 @@ namespace Bookstore.Services
         public List<User> Get() =>
             _users.Find(user => true).ToList();
 
+        public User GetByEmail(string email) =>
+            _users.Find<User>(user => user.Email == email).FirstOrDefault();
+
         public User Get(string id) =>
             _users.Find<User>(user => user.Id == id).FirstOrDefault();
 

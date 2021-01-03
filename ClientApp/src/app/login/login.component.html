@@ -1,0 +1,14 @@
+<h3>Login</h3>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+  <div>
+    <input id="email" type="text" placeholder="Your email..." formControlName="email">
+    <input id="password" type="password" placeholder="Your password..." formControlName="password">
+  </div><br />
+
+  <p *ngIf="auth == false">Email or password incorrect!</p>
+
+  <button class="button" type="submit" style="border: none; width: 30%;">Login</button>
+
+</form>

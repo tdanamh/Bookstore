@@ -13,10 +13,13 @@ namespace Bookstore.Controllers
     public class BooksController : ControllerBase
     {
         private readonly BookService _bookService;
+        private readonly AuthorService _authorService;
 
-        public BooksController(BookService bookService)
+        public BooksController(BookService bookService, AuthorService authorService)
         {
             _bookService = bookService;
+            // added
+            _authorService = authorService;
         }
 
         [HttpGet]
@@ -33,7 +36,19 @@ namespace Bookstore.Controllers
                 return NotFound();
             }
 
-            return book;
+            if (book.AuthorsIds.Count > 0)
+            {
+                var tempList = new List<Author>();
+                foreach (var authorId in book.AuthorsIds) {
+                    var author = _authorService.Get(authorId);
+                    if (author != null)
+                    {
+                        tempList.Add(author);
+                    }
+                }
+                book.AuthorsList = tempList;
+            }
+            return Ok(book);
         }
 
         [HttpPost]
