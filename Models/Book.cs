@@ -13,13 +13,16 @@ namespace Bookstore.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("Name")]   // // "Name" is the property name in MongoDB collection
+        [BsonElement("Name")]
         public string Name { get; set; }
 
+        [BsonElement("Price")]
         public decimal Price { get; set; }
 
-        public string Category { get; set; }
+        [BsonElement("AuthorsIds")]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public List<string> AuthorsIds { get; set; }
 
-        public string Author { get; set; }
+        public List<Author> AuthorsList { get; set; }
     }
 }

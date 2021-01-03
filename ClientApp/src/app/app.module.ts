@@ -12,8 +12,10 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
 import { ContactComponent } from "./contact/contact.component";
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
-import { ShippingComponent } from './shipping/shipping.component';
 import { BooksComponent } from './books/books.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [
@@ -25,8 +27,10 @@ import { BooksComponent } from './books/books.component';
       { path: "books/:bookId", component: ProductDetailsComponent },
       { path: "contact", component: ContactComponent },
       { path: "cart", component: CartComponent},
-      { path: 'shipping', component: ShippingComponent },
-      { path: 'books', component: BooksComponent }
+      { path: 'books', component: BooksComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'account', component: AccountComponent }
     ])
   ],
   declarations: [
@@ -37,8 +41,10 @@ import { BooksComponent } from './books/books.component';
     ProductDetailsComponent,
     ContactComponent,
     CartComponent,
-    ShippingComponent,
-    BooksComponent
+    BooksComponent,
+    RegisterComponent,
+    LoginComponent,
+    AccountComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService]

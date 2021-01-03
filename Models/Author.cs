@@ -7,20 +7,16 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Bookstore.Models
 {
-    public class Order
+    public class Author
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string UserId { get; set; }
+        [BsonElement("FirstName")]
+        public string FirstName { get; set; }
 
-        [BsonRepresentation(BsonType.ObjectId)]
-        public List<string> BooksIds { get; set; }
-
-        public string Address { get; set; }
-
-        public int Total { get; set; }
+        [BsonElement("LastName")]
+        public string LastName { get; set; }
     }
 }

@@ -6,10 +6,16 @@
   <h2>Contact</h2>
 </a>
 
-<a class="button fancy-button" [routerLink]="['/cart']"><i class="material-icons">shopping_cart</i>Checkout</a>
+<a *ngIf="!isLoggedIn" [routerLink]="['/register']">
+  <h2>Register</h2>
+</a>
 
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->
+<a *ngIf="!isLoggedIn" [routerLink]="['/login']">
+  <h2>Login</h2>
+</a>
+
+<a *ngIf="isLoggedIn" [routerLink]="['/account']">
+  <h2>My orders</h2>
+</a>
+
+<a class="button fancy-button" [routerLink]="['/cart']"><i class="material-icons">shopping_cart</i>Checkout</a>

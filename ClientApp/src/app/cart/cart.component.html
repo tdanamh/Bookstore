@@ -1,9 +1,5 @@
 <h3>Cart</h3>
 
-<p>
-<a routerLink="/shipping">Shipping Prices</a>
-</p>
-
 <div *ngIf="items.length == 0">
   <span>Cosul e gol</span>
 </div>
@@ -11,3 +7,15 @@
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
 </div>
+
+<form *ngIf="canPlaceOrder && items.length != 0" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <div>
+    <input id="address" type="text" placeholder="Your shipping address..." formControlName="address">
+  </div><br />
+
+  <button class="button" type="submit" style="border: none; width: 30%;">Place order</button>
+
+</form>
+
+<p *ngIf="!canPlaceOrder">You must be logged in!</p>

@@ -1,0 +1,9 @@
+<p *ngIf="!myOrders"> You don't have any order yet! </p>
+
+<div *ngIf="myOrders">
+
+  <div *ngFor="let order of myOrders">
+    <p>{{order.address}}</p>
+  </div>
+
+</div>
